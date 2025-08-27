@@ -10,15 +10,16 @@ class Job extends Model{
     use HasFactory;
     protected $table = 'job_listings';
 
-    protected $fillable = ['title', 'salary'];
+    //esto funciona como una lista negra, todo lo que especifique aca no va a estar protegido, pero el resto si
+    protected $guarded = [];
 
     public function employer()
     {
         return $this->belongsTo(Employer::class);
     }
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, foreignPivotKey: "job_listing_id");
+    // public function tags()
+    // {
+    //     return $this->belongsToMany(Tag::class, foreignPivotKey: "job_listing_id");
 
-    }
+    // }
 }
