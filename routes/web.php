@@ -1,54 +1,24 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Job;
 
-Route::get('/', function () {
-    return view('home');
-});
-// index
-Route::get('/jobs', function () {
-    $jobs = Job::with('employer')->latest()->simplePaginate(3);
+Route::view('/', 'home');
+Route::view('/contact', 'contact');
 
-    return view('jobs.index', [
-        'jobs' => $jobs
-    ]);
-});
-// Create
-Route::get('/jobs/create', function () {
-    return view('jobs.create');
-});
-// Show
-Route::get('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
-    return view('jobs.show', ['job' => $job]);
-});
-// Store
-Route::post('/jobs', function () {
-    request()->validate([
-        'title' => ['required', 'min:3'],
-        'salary' => ['required', 'regex:/^[0-9,]+$/']
-    ]);
-
-    Job::create([
-        'title' => request('title'),
-        'salary' => request('salary'),
-        'employer_id' =>1
-    ]);
-    return redirect('/jobs');
-});
-
-Route::get('/jobs/{id}/edit', function ($id) {
-    $job = Job::find($id);
-    return view('jobs.edit', ['job' => $job]);
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::resource('jobs', JobController::class);
 
 
 //!COMENTARIO
-//'regex:/^[0-9,]+$/']
+// ['required', 'regex:/.*\d.*/']
 // esto sirve para decirle al validator que en el campo de salary solo se debe agregar un sueldo con
 // el formato ($numeros y coma)
+//!COMENTARIO 2
+// Route::resource() es un método que crea automáticamente las 7 rutas RESTful más comunes:
+// GET /jobs - index (lista todos los jobs)
+// GET /jobs/create - create (muestra form de creación)
+// POST /jobs - store (guarda nuevo job)
+// GET /jobs/{job} - show (muestra un job)
+// GET /jobs/{job}/edit - edit (muestra form de edición)
+// PUT/PATCH /jobs/{job} - update (actualiza un job)
+// DELETE /jobs/{job} - destroy (elimina un job)
