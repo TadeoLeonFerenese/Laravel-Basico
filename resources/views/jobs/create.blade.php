@@ -23,7 +23,7 @@
 
             </div>
                 <x-form-error name="title"/>
-            <div class="sm:col-span-4 mt-4">
+        <div class="sm:col-span-4 mt-4">
                 <label for="salary" class="block text-sm/6 font-medium text-gray-900">Salary</label>
                 <div class="mt-2">
                 <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
