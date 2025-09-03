@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Employer>
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class EmployerFactory extends Factory
 {
     protected $model = \App\Models\Employer::class;
-    
+
     /**
      * Define the model's default state.
      *
@@ -20,6 +21,7 @@ class EmployerFactory extends Factory
     {
         return [
             'name' => fake()->company(),
+            'user_id' => User::factory()
         ];
     }
 }
