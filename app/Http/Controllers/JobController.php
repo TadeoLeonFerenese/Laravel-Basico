@@ -40,14 +40,14 @@ public function store()
     Job::create([
         'title' => request('title'),
         'salary' => request('salary'),
-        'employer_id' =>1
+        'employer_id' => 1
     ]);
     return redirect('/jobs');
 }
 
 public function edit(Job $job)
 {
-    Gate::authorize('edit-job', $job);
+    $this->authorize('edit', $job);
 
     return view('jobs.edit', ['job' => $job]);
 }

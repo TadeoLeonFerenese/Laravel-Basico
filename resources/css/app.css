@@ -8,4 +8,38 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Colores personalizados */
+    --color-primary: #3b82f6;
+    --color-secondary: #64748b;
 }
+
+/* Componentes personalizados */
+/* @utility {
+    .btn-primary {
+        @apply bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600;
+    }
+
+    .card {
+        @apply bg-white shadow-lg rounded-lg p-6;
+    }
+} */
+
+/* Estilos base para etiquetas HTML */
+/* @layer base {
+    h1 {
+        @apply text-3xl font-bold text-gray-900;
+    }
+
+    h2 {
+        @apply text-2xl font-semibold text-gray-800;
+    }
+
+    p {
+        @apply text-gray-600 leading-relaxed;
+    }
+
+    a {
+        @apply text-blue-600 hover:text-blue-800 underline;
+    }
+} */
