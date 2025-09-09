@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
-    @vite(['resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Tailwind CSS CDN -->
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 </head>
@@ -33,8 +33,10 @@
                         <div class="ml-4 flex items-center md:ml-6">
 
                             @guest
-                                <x-nav-link href="/login" :active="request()->is('login')" class="mr-1">Log In</x-nav-link>
-                                <x-nav-link href="/register" :active="request()->is('register')" class="mr-2">Register</x-nav-link>
+                                <div class="flex space-x-1">
+                                    <x-nav-link href="/login" :active="request()->is('login')">Log In</x-nav-link>
+                                    <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
+                                </div>
                             @endguest
 
                             @auth
